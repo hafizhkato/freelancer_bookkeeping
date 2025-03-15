@@ -4,7 +4,7 @@ const schema = a.schema({
   ClientTable: a
     .model({
       clientId: a.id().required(),
-      clientName: a.string(),
+      clientName: a.string().required(),
       clientEmail: a.email(),
       clientPhoneNumber: a.phone(),
       clientAddress: a.string(),
