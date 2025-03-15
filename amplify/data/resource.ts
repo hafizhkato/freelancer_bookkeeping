@@ -17,6 +17,8 @@ const schema = a.schema({
     ClientDocuments: a
     .model({
       title: a.string().required(),
+      clientId: a.id().required(),
+      clientName: a.string().required(),
       date: a.date(),
       documentType: a.string(),
       documentURL: a.url().required(),
