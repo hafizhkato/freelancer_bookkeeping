@@ -34,7 +34,7 @@ const schema = a.schema({
       itemPrice: a.float().required(),
       totalAmount: a.float().required(),
       Description: a.string(),
-      invoice: a.belongsTo('InvoiceTable','invoiceId')
+      invoice: a.belongsTo('InvoiceTable', ['invoiceId', 'clientId'])
     })
     .authorization((allow) => [allow.owner()]),
 
