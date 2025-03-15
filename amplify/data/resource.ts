@@ -19,7 +19,7 @@ const schema = a.schema({
       invoiceDate: a.date(),
       amount: a.float(),
       status: a.enum(['Pending', 'Paid', 'Overdue', 'Cancel']),
-      members: a.hasMany('InvoiceItem', 'invoice')
+      members: a.hasMany('InvoiceItem', 'invoiceId')
     })
     .identifier(['invoiceId', 'clientId'])
     .authorization((allow) => [allow.owner()]),
