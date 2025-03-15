@@ -1,8 +1,11 @@
-import { Bell, User, Settings } from "lucide-react";
+import { Bell, User, Settings, LogOutIcon } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useAuthenticator } from '@aws-amplify/ui-react';
 
 
 const Navbar = () => {
+  const { signOut } = useAuthenticator();
+
   return (
     <nav className="light w-full bg-gray-800 p-4 flex justify-between items-center border border-white rounded-lg">
       <div className="flex justify-between items-center w-full mb-3">
@@ -52,6 +55,11 @@ const Navbar = () => {
               <User className="cursor-pointer text-white-500 hover:text-red-300" size={24} />
               </Link>
             </button>
+          </div>
+          <div>
+            <button onClick={signOut}>
+              <LogOutIcon className="cursor-pointer text-white-500 hover:text-red-300" size={24} />
+           </button>
           </div>
       </div>
     </div>
