@@ -34,7 +34,9 @@ const schema = a.schema({
       Description: a.string(),
       invoice: a.belongsTo('InvoiceTable','invoiceId')
     })
-  .authorization((allow) => [allow.owner()]),
+
+
+.authorization((allow) => [allow.owner()]),
 });
 
     
