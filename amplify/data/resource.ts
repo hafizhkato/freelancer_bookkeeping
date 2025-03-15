@@ -19,10 +19,26 @@ const schema = a.schema({
       invoiceDate: a.date(),
       amount: a.float(),
       status: a.enum(['Pending', 'Paid', 'Overdue', 'Cancel']),
+      items: a.hasMany('InvoiceItem', 'invoiceId')
     })
     .identifier(['invoiceId', 'clientId'])
     .authorization((allow) => [allow.owner()]),
+
+    InvoiceItem: a
+    .model({
+      itemName: a.string().required(),
+      itemQuantity: a.integer().required(),
+      invoiceId:a.id().required(),
+      itemPrice: a.float().required(),
+      totalAmount: a.float().required(),
+      Description: a.string(),
+      invoice: a.belongsTo('InvoiceTable','invoiceId')
+    })
+    .identifier(['itemName'])
+    .authorization((allow) => [allow.owner()]),
 });
+
+    
 
 export type Schema = ClientSchema<typeof schema>;
 
