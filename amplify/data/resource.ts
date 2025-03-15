@@ -9,9 +9,9 @@ const schema = a.schema({
       clientPhoneNumber: a.phone(),
       clientAddress: a.string(),
       description: a.string(),
-      members: a.hasMany('ClientDocuments', ['clientId','clientName'])
+      members: a.hasMany('ClientDocuments','clientId')
     })
-    .identifier(['clientId', 'clientName'])
+    .identifier(['clientId'])
     .authorization((allow) => [allow.owner()]),
 
     ClientDocuments: a
@@ -23,7 +23,7 @@ const schema = a.schema({
       documentType: a.string(),
       documentURL: a.url().required(),
       description: a.string(),
-      document: a.belongsTo('ClientTable',['clientId','clientName'])
+      document: a.belongsTo('ClientTable','clientId')
     })
     .authorization((allow) => [allow.owner()]),
 
