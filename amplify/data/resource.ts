@@ -19,7 +19,7 @@ const schema = a.schema({
       invoiceDate: a.date(),
       amount: a.float(),
       status: a.enum(['Pending', 'Paid', 'Overdue', 'Cancel']),
-      items: a.hasMany('InvoiceItem', 'invoiceId')
+      items: a.hasMany('InvoiceItem', 'teamId')
     })
     .identifier(['invoiceId', 'clientId'])
     .authorization((allow) => [allow.owner()]),
@@ -28,11 +28,11 @@ const schema = a.schema({
     .model({
       itemName: a.string().required(),
       itemQuantity: a.integer().required(),
-      invoiceId:a.id().required(),
       itemPrice: a.float().required(),
       totalAmount: a.float().required(),
       Description: a.string(),
-      invoice: a.belongsTo('InvoiceTable','invoiceId')
+      teamId: a.id(),
+      invoice: a.belongsTo('InvoiceTable','teamId')
     })
     .identifier(['itemName'])
     .authorization((allow) => [allow.owner()]),
