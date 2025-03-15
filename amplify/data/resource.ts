@@ -9,7 +9,8 @@ const schema = a.schema({
       clientPhoneNumber: a.phone(),
       clientAddress: a.string(),
     })
-    .identifier(['clientId', 'clientName']),
+    .identifier(['clientId', 'clientName'])
+    .authorization((allow) => [allow.owner()]),
 
     InvoiceTable: a
     .model({
@@ -20,7 +21,8 @@ const schema = a.schema({
       status: a.enum(['Pending', 'Paid', 'Overdue', 'Cancel']),
       members: a.hasMany('InvoiceItem', 'invoice')
     })
-    .identifier(['invoiceId', 'clientId']),
+    .identifier(['invoiceId', 'clientId'])
+    .authorization((allow) => [allow.owner()]),
    
 
     InvoiceItem: a
@@ -34,9 +36,10 @@ const schema = a.schema({
       Description: a.string(),
       invoice: a.belongsTo('InvoiceTable','invoiceId')
     })
+    .authorization((allow) => [allow.owner()]),
 
 
-.authorization((allow) => [allow.owner()]),
+
 });
 
     
