@@ -8,18 +8,18 @@ const schema = a.schema({
       clientEmail: a.email(),
       clientPhoneNumber: a.phone(),
       clientAddress: a.string(),
-    }),
-
-  InvoiceTable: a
-    .model({
-      invoiceId: a.id().required(),
-      clientId: a.id(),
-      invoiceDate: a.date(),
-      dueDate: a.date(),
-      amount: a.float(),
-      status: a.enum(['Pending', 'Paid', 'Cancel', 'Overdue']),
-
     })
+
+  // InvoiceTable: a
+  //   .model({
+  //     invoiceId: a.id().required(),
+  //     clientId: a.id(),
+  //     invoiceDate: a.date(),
+  //     dueDate: a.date(),
+  //     amount: a.float(),
+  //     status: a.enum(['Pending', 'Paid', 'Cancel', 'Overdue']),
+
+  //   })
     
 
     
