@@ -9,8 +9,7 @@ const schema = a.schema({
       clientPhoneNumber: a.phone(),
       clientAddress: a.string(),
     })
-    .identifier(['clientId', 'clientName'])
-    .authorization((allow) => [allow.owner()]),
+    .identifier(['clientId', 'clientName']),
 
     InvoiceTable: a
     .model({
@@ -19,23 +18,23 @@ const schema = a.schema({
       invoiceDate: a.date(),
       amount: a.float(),
       status: a.enum(['Pending', 'Paid', 'Overdue', 'Cancel']),
-      items: a.hasMany('InvoiceItem', 'teamId')
+      members: a.hasMany('InvoiceItem', 'invoice')
     })
-    .identifier(['invoiceId', 'clientId'])
-    .authorization((allow) => [allow.owner()]),
+    .identifier(['invoiceId', 'clientId']),
+   
 
     InvoiceItem: a
     .model({
       itemName: a.string().required(),
       itemQuantity: a.integer().required(),
+      invoiceId: a.id().required(),
+      clientId: a.id().required(),
       itemPrice: a.float().required(),
       totalAmount: a.float().required(),
       Description: a.string(),
-      teamId: a.id(),
-      invoice: a.belongsTo('InvoiceTable','teamId')
+      invoice: a.belongsTo('InvoiceTable','invoiceId')
     })
-    .identifier(['itemName'])
-    .authorization((allow) => [allow.owner()]),
+  .authorization((allow) => [allow.owner()]),
 });
 
     
