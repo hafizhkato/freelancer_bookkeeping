@@ -22,7 +22,7 @@ const schema = a.schema({
   //   })
     
 
-    
+    .identifier(['clientId'])
     .authorization((allow) => [allow.owner()]),
 });
 
