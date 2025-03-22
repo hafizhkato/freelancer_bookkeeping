@@ -8,7 +8,7 @@ import Income from "./scenes/income";
 import Expenses from "./scenes/expenses";
 import Settings from "./scenes/settings";
 import Saving from "./scenes/saving";
-import Loans from "./scenes/loans";
+import Client from "./scenes/client";
 import Users from "./scenes/users";
 
 const App = () => {
@@ -16,7 +16,7 @@ const App = () => {
     
     <Router>
       <SidebarProvider>
-      <div className="flex h-screen light bg-gray-300">
+      <div className="flex overflow-y-auto light bg-gray-300">
         {/* Sidebar */}
         <Sidebar />
 
@@ -34,7 +34,7 @@ const App = () => {
               <Route path="/expenses" element={<Expenses/>} />
               <Route path="/settings" element={<Settings/>} />
               <Route path="/savings" element={<Saving/>} />
-              <Route path="/loans" element={<Loans/>} />
+              <Route path="/loans" element={<Client/>} />
               <Route path="/users" element={<Users/>} />
             </Routes>
           </div>

@@ -5,10 +5,11 @@ const schema = a.schema({
     .model({
       clientId: a.id().required(),
       clientName: a.string().required(),
-      clientEmail: a.email(),
-      clientPhoneNumber: a.phone(),
+      clientEmail: a.email().required(),
+      clientPhoneNumber: a.phone().required(),
+      clientCompanyName: a.string(),
       clientAddress: a.string(),
-      description: a.string(),
+      status: a.enum(['Ongoing','Waiting_for_payment','Completed','Cancelled']),
       members: a.hasMany('ClientDocuments','clientId')
     })
     .identifier(['clientId'])
