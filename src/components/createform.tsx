@@ -18,6 +18,10 @@ const schema = yup.object({
   .required("Phone number is required"),
   companyName: yup.string().required("Company name is required"),
   address: yup.string().required("Address is required"),
+  status: yup
+    .mixed<"Ongoing" | "Waiting_for_payment" | "Completed" | "Cancelled">()
+    .oneOf(["Ongoing", "Waiting_for_payment", "Completed", "Cancelled"], "Invalid status")
+    .required("Status is required"),
   // document: yup
   //   .mixed()
   //   .test("fileRequired", "Icon upload is required", (value) => {
@@ -31,7 +35,8 @@ type ClientFormData = {
   phone: string;
   companyName: string;
   address: string;
-  countryCode: string; // ✅ Add countryCode field
+  countryCode: string;
+  status: "Ongoing" | "Waiting_for_payment" | "Completed" | "Cancelled";// ✅ Add countryCode field
   // document: FileList;
 };
 
@@ -46,6 +51,7 @@ const CreateForm: React.FC<CreateFormProps> = ({ onClose }) => {
     formState: { errors },
   } = useForm<ClientFormData>({
     resolver: yupResolver(schema),
+    defaultValues: { status: "Ongoing" }, // ✅ Default status to "Ongoing"
   });
 
   const onSubmit = async (data: ClientFormData) => {
@@ -62,7 +68,8 @@ const CreateForm: React.FC<CreateFormProps> = ({ onClose }) => {
         clientEmail: data.email,
         clientPhoneNumber: fullPhoneNumber,
         clientCompanyName: data.companyName,
-        clientAddress: data.address 
+        clientAddress: data.address ,
+        status: data.status || "Ongoing"
       });
   
       console.log("Successfully added:", newClient);
@@ -112,6 +119,18 @@ const CreateForm: React.FC<CreateFormProps> = ({ onClose }) => {
                 {...register("phone", { required: "Phone number is required" })}
               />
             </div>
+
+            {/* Status Dropdown */}
+          <div className="mb-3">
+            <label className="block text-sm font-medium">Status</label>
+            <select className="w-full p-2 border rounded bg-gray-100" {...register("status")}>
+              <option value="Ongoing">Ongoing</option>
+              <option value="Waiting_for_payment">Waiting for Payment</option>
+              <option value="Completed">Completed</option>
+              <option value="Cancelled">Cancelled</option>
+            </select>
+            <p className="text-red-500 text-xs">{errors.status?.message}</p>
+          </div>
             
             {/* Validation Errors */}
             <p className="text-red-500 text-xs">{errors.countryCode?.message}</p>

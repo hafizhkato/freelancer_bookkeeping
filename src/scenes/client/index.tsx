@@ -13,6 +13,7 @@ type SimpleClient = {
   clientName: string;
   clientEmail: string;
   clientPhoneNumber: string;
+  clientCompanyName: string | null;
   status: "Ongoing" | "Waiting_for_payment" | "Completed" | "Cancelled" | null;
 };
 
@@ -31,6 +32,7 @@ const Client: React.FC = () => {
         "clientName",
         "clientEmail",
         "clientPhoneNumber",
+        "clientCompanyName",
         "status"
       ] as const;
     
@@ -46,6 +48,7 @@ const Client: React.FC = () => {
             clientName: client.clientName,
             clientEmail: client.clientEmail,
             clientPhoneNumber: client.clientPhoneNumber,
+            clientCompanyName: client.clientCompanyName,
             status: client.status
           }));
     
