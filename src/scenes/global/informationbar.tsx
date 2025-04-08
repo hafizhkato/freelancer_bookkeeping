@@ -5,7 +5,7 @@ const Informationbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     
     return (
-      <div className="hidden sm:block h-screen bg-gray-800 text-white p-2 border border-white rounded-lg">
+      <div className="hidden sm:block light bg-gray-800 text-white p-2 border border-white rounded-lg">
         <div className={`light ${isOpen ? "w-64" : "w-10"} transition-all duration-300`}>
             {/* Toggle Button */}
         <button 

@@ -15,6 +15,11 @@ export const storage = defineStorage({
     'client_documents/{entity_id}/*': [
       allow.entity('identity').to(['read', 'write', 'delete'])
     ],
+    
+    'image-documents/{entity_id}/*': [
+      allow.entity('identity').to(['read', 'write', 'delete'])
+    ],
+
 
 }),
 });

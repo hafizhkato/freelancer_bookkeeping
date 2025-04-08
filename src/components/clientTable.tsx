@@ -13,27 +13,30 @@ type Client = {
 
 type ClientTableProps = {
   clients: Client[];
+  onClientsSelected: (selectedIds: string[]) => void; // Add this prop
 };
 
-const ClientTable: React.FC<ClientTableProps> = ({ clients }) => {
+const ClientTable: React.FC<ClientTableProps> = ({ clients, onClientsSelected }) => {
   const [selectedClients, setSelectedClients] = useState<string[]>([]);
 
-  // Toggle single row selection
   const handleSelectRow = (clientId: string) => {
-    setSelectedClients((prev) =>
-      prev.includes(clientId)
-        ? prev.filter((id) => id !== clientId) // Remove if already selected
-        : [...prev, clientId] // Add if not selected
-    );
+    setSelectedClients((prev) => {
+      const updatedSelection = prev.includes(clientId)
+        ? prev.filter((id) => id !== clientId)
+        : [...prev, clientId];
+  
+      onClientsSelected(updatedSelection); // Now uses the latest state
+      return updatedSelection;
+    });
   };
 
-  // Toggle all rows selection
   const handleSelectAll = () => {
-    if (selectedClients.length === clients.length) {
-      setSelectedClients([]); // Deselect all
-    } else {
-      setSelectedClients(clients.map((client) => client.clientId)); // Select all
-    }
+    setSelectedClients((prev) => {
+      const updatedSelection = prev.length === clients.length ? [] : clients.map((client) => client.clientId);
+  
+      onClientsSelected(updatedSelection); // Pass latest selection
+      return updatedSelection;
+    });
   };
 
   return (
@@ -80,6 +83,8 @@ const ClientTable: React.FC<ClientTableProps> = ({ clients }) => {
                     ? "text-blue-600"
                     : client.status === "Waiting_for_payment"
                     ? "text-yellow-600"
+                    : client.status === "Cancelled"
+                    ? "text-red-600"
                     : "text-green-600"
                 }`}
               >
@@ -91,10 +96,10 @@ const ClientTable: React.FC<ClientTableProps> = ({ clients }) => {
       </table>
 
       {/* Display selected client IDs for debugging */}
-      <div className="mt-4 p-4 bg-gray-100">
+      {/* <div className="mt-4 p-4 bg-gray-100">
         <h3 className="text-lg font-semibold">Selected Clients:</h3>
         <p>{selectedClients.length > 0 ? selectedClients.join(", ") : "None"}</p>
-      </div>
+      </div> */}
     </div>
   );
 };

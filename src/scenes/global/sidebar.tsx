@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { LayoutDashboard, DollarSign, Wallet, Settings, Menu, HandCoins, CreditCard } from "lucide-react";
+import { LayoutDashboard, DollarSign, Wallet, Settings, Menu, HandCoins, PersonStanding } from "lucide-react";
 import { useSidebar } from "../../context/SidebarContext"; // Import context
 
 const Sidebar = () => {
@@ -33,9 +33,9 @@ const Sidebar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/expenses" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded">
+            <Link to="/textract" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded">
               <Wallet size={20} />
-              {isOpen && <span>Expense</span>}
+              {isOpen && <span>Textract</span>}
             </Link>
           </li>
           <li>
@@ -45,9 +45,9 @@ const Sidebar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/loans" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded">
-              <CreditCard size={20} />
-              {isOpen && <span>Loan</span>}
+            <Link to="/client" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded">
+              <PersonStanding size={20} />
+              {isOpen && <span>Basic Amplify Project</span>}
             </Link>
           </li>
           <li>
