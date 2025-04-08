@@ -1,6 +1,6 @@
 import React from "react";
 import bannerImage from "../../img/banner.jpeg";
-import profileImage from "../../img/profile.jpeg";
+//import profileImage from "../../img/profile.jpeg";
 
 const UserProfile: React.FC = () => {
     return (
