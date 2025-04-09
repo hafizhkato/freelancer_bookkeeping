@@ -112,7 +112,7 @@ const Client: React.FC = () => {
         <div>
           <Header title="Client Management" />
         <div className="flex flex-col md:flex-row md:justify-between md:items-center space-y-4 md:space-y-0 mt-4 ml-2 mr-2">
-        {/* Search and Filter Section */}
+        {/* Search and Filter Section for client */}
         <div className="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4">
           {/* Search Input */}
           <div className="relative">
