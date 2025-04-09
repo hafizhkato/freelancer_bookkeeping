@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import DocRenderer from '../../components/DocRenderer';
+import DocRenderer from '../../components/docRenderer';
 import { Search, Filter, PlusCircle, Trash2 } from "lucide-react";
 import CreateForm from "../../components/createform";
 import ClientTable from "../../components/clientTable";

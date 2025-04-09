@@ -4,7 +4,7 @@ import { uploadData, remove, list } from 'aws-amplify/storage';
 import { fetchAuthSession } from "aws-amplify/auth";
 import { useAuthenticator } from "@aws-amplify/ui-react";
 import Header from '../../components/header';
-import DocRenderer from "../../components/DocRenderer";
+import DocRenderer from "../../components/docRenderer";
 
 const Textract: React.FC = () => {
     const [file, setFile] = useState<File | null>(null);
