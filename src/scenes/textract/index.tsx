@@ -4,14 +4,18 @@ import { uploadData, remove, list } from 'aws-amplify/storage';
 import { fetchAuthSession } from "aws-amplify/auth";
 import { useAuthenticator } from "@aws-amplify/ui-react";
 import Header from '../../components/header';
-import CodeBlock from '../../components/codeblock';
-import Paragraph from '../../components/paragraph';
-import BulletPoint from '../../components/bulletpoint';
+import DocRenderer from "../../components/DocRenderer";
 
 const Textract: React.FC = () => {
     const [file, setFile] = useState<File | null>(null);
     const [identityId, setIdentityId] = useState<string | null>(null);
     const { user } = useAuthenticator((context) => [context.user]); // Get user info
+    const [markdown, setMarkdown] = useState('');
+    
+      useEffect(() => {
+        import('../../docs/textract-project.md?raw')
+          .then((res) => setMarkdown(res.default));
+      }, []);
 
     useEffect(() => {
         const getIdentityId = async () => {
@@ -123,44 +127,19 @@ const Textract: React.FC = () => {
 
   return (
     <div>
-      <Header title=" Automated Document Processing with Textract & WebSocket Delivery" 
-      subtitle="Serverless architecture for real-time data extraction
-       and instant CSV download using S3, Lambda, Textract, WebSocket, and CloudFront." /> 
+      <Header title="Textract Web App" subtitle="Automated data extraction from documents using AWS Textract." />
 
-       <Paragraph text="This project is a serverless document processing pipeline that extracts structured data from uploaded files (e.g., receipts, invoices) 
-       using AWS Textract, and delivers the output in real-time as downloadable CSV files. The architecture is 
-       optimized for minimal latency, security, and scalability, making it ideal for automation-heavy back offices
-       or digital bookkeeping tools." />
-
-       <BulletPoint items={[
-        "User Uploads a File to S3",
-        "S3 Triggers a Lambda Function",
-        "Lambda Function Calls Textract to Analyze the Document",
-        "Data Normalization & CSV Generation",
-        "WebSocket Notification to Frontend",
-        "CloudFront-Signed URL for Secure Access"
-       ]}/>
-
-      <CodeBlock code={`
-          export type Schema = ClientSchema<typeof schema>;
-            
-          export const data = defineData({
-            schema,
-            authorizationModes: {
-              defaultAuthorizationMode: 'userPool',
-            },
-          });`
-          } language='javascript'/>
-
-      <div className="flex flex-col items-center justify-center h-screen bg-gray-100 p-4">
-        <div className="bg-white shadow-lg rounded-lg p-6 w-96 text-center">
-          <label className="flex flex-col items-center p-4 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
-            <Upload className="w-12 h-12 text-gray-500 mb-2" />
-            <span className="text-gray-700">Click to upload file</span>
-            <input type="file" className="hidden" onChange={handleChange} />
-          </label>
-        </div>
+      <div className="flex flex-col items-center justify-center h-auto bg-gray-300 p-4">
+      <div className="shadow-lg rounded-lg p-6 w-80 text-center bg-gray-100">
+        <label className="flex flex-col items-center p-4 border-2 border-dashed border-gray-600 rounded-lg cursor-pointer hover:bg-gray-50">
+          <Upload className="w-12 h-12 text-gray-500 mb-2" />
+          <span className="text-gray-700">Click to upload file</span>
+          <input type="file" className="hidden" onChange={handleChange} />
+        </label>
       </div>
+    </div>
+     <DocRenderer markdown={markdown} /> 
+
     </div>
   );
 };

@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../../components/header';
-import CodeBlock from '../../components/codeblock';
-import Paragraph from '../../components/paragraph';
-import BulletPoint from '../../components/bulletpoint';
+import DocRenderer from '../../components/DocRenderer';
 import { Search, Filter, PlusCircle, Trash2 } from "lucide-react";
 import CreateForm from "../../components/createform";
 import ClientTable from "../../components/clientTable";
 import { generateClient } from "aws-amplify/data";
 import type { Schema } from "../../../amplify/data/resource";
+import Header from '../../components/header';
 
 const client = generateClient<Schema>();
 
@@ -28,6 +26,12 @@ const Client: React.FC = () => {
   const clientsPerPage = 10;
   const [clients, setClients] = useState<SimpleClient[]>([]);
   const [selectedClientIds, setSelectedClientIds] = useState<string[]>([]); // Add this state
+  const [markdown, setMarkdown] = useState('');
+
+  useEffect(() => {
+    import('../../docs/amplify-client-management.md?raw')
+      .then((res) => setMarkdown(res.default));
+  }, []);
 
   useEffect(() => {
     const selectionSet = [
@@ -106,50 +110,7 @@ const Client: React.FC = () => {
 
     return (
         <div>
-        <Header title="Client Management" subtitle='Amazon Amplify Frontend and Backend Service' />
-        <Paragraph text="This page demonstrates how to manage clients using Amazon Amplify's DataStore. You can create, read, 
-        update, and delete clients. The client data is stored in a DynamoDB table and synchronized in real-time across all clients." />
-        <Paragraph text="Using Amplify's GraphQL-based schema definition, I define my data model using the Amplify Data 
-        schema. The schema is automatically translated into DynamoDB tables, allowing efficient data operations" />
-        <CodeBlock code={`
-        const schema = a.schema({
-          ClientTable: a
-            .model({
-              clientId: a.id().required(),
-              clientName: a.string().required(),
-              clientEmail: a.email().required(),
-              clientPhoneNumber: a.phone().required(),
-              clientCompanyName: a.string(),
-              clientAddress: a.string(),
-              status: a.enum(['Ongoing','Waiting_for_payment','Completed','Cancelled'])
-            })
-            .identifier(['clientId'])
-            .authorization((allow) => [allow.owner()]),
-            });`} 
-            language='javascript'/>
-
-          <Paragraph text='Amplify simplifies DynamoDB authorization by integrating with AWS Cognito and IAM roles.
-           Access to data can be restricted based on:' />
-           <BulletPoint items={[
-            "Owner-based access control",
-            "Attribute-based access control",
-            "Group-based access control",
-            "Public access"
-           ]}/>
-           <CodeBlock code={`
-            export type Schema = ClientSchema<typeof schema>;
-            
-            export const data = defineData({
-              schema,
-              authorizationModes: {
-                defaultAuthorizationMode: 'userPool',
-              },
-            });`
-            } language='javascript'/>
-           <Paragraph text="With Amplify's automatic authorization handling, I can perform CRUD operations without manually
-            managing API Gateway or IAM permissions. This allows for a fully managed, serverless backend that scales effortlessly." />
-
-
+          <Header title="Client Management" />
         <div className="flex flex-col md:flex-row md:justify-between md:items-center space-y-4 md:space-y-0 mt-4 ml-2 mr-2">
         {/* Search and Filter Section */}
         <div className="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4">
@@ -221,6 +182,7 @@ const Client: React.FC = () => {
                     Next
                 </button>
             </div>
+            <DocRenderer markdown={markdown} />
 
       {/* Create Form Modal */}
       {isCreateFormOpen && <CreateForm onClose={() => setIsCreateFormOpen(false)} />}
