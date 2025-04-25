@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Upload } from "lucide-react";
+import { Upload, GithubIcon } from "lucide-react";
 import { uploadData, remove, list } from 'aws-amplify/storage';
 import { fetchAuthSession } from "aws-amplify/auth";
 import { useAuthenticator } from "@aws-amplify/ui-react";
@@ -128,6 +128,19 @@ const Textract: React.FC = () => {
   return (
     <div>
       <Header title="Textract Web App" subtitle="Automated data extraction from documents using AWS Textract." />
+
+      {/* GitHub Icon Link below Header */}
+      <div className="mt-2 ml-6">
+                <a 
+                    href="https://github.com/hafizhkato/main-txtrct"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-2 text-gray-700 hover:text-gray-900 transition-colors"
+                >
+                    <GithubIcon className="w-7 h-7" />
+                    <span className="text-sm">View Script on GitHub</span>
+                </a>
+            </div>
 
       <div className="flex flex-col items-center justify-center h-auto bg-gray-300 p-4">
       <div className="shadow-lg rounded-lg p-6 w-80 text-center bg-gray-100">

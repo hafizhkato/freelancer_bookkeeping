@@ -1,4 +1,4 @@
-# Documentation
+# Amplify Frontend and Backend Documentation
 
 _Amazon Amplify Frontend and Backend Service_
 

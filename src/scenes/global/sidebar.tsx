@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { LayoutDashboard, DollarSign, Wallet, Settings, Menu, HandCoins, PersonStanding } from "lucide-react";
+import { LayoutDashboard, Database, Cloud, Users, Menu} from "lucide-react";
 import { useSidebar } from "../../context/SidebarContext"; // Import context
 
 const Sidebar = () => {
@@ -27,33 +27,21 @@ const Sidebar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/income" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded ">
-              <DollarSign size={20} />
-              {isOpen && <span>Income</span>}
+            <Link to="/projects/database-migration" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded ">
+              <Database size={20} />
+              {isOpen && <span>Database Project</span>}
             </Link>
           </li>
           <li>
             <Link to="/textract" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded">
-              <Wallet size={20} />
-              {isOpen && <span>Textract</span>}
+              <Cloud size={20} />
+              {isOpen && <span>Serverless Application</span>}
             </Link>
           </li>
           <li>
-            <Link to="/savings" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded">
-              <HandCoins size={20} />
-              {isOpen && <span>Savings</span>}
-            </Link>
-          </li>
-          <li>
-            <Link to="/client" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded">
-              <PersonStanding size={20} />
-              {isOpen && <span>Basic Amplify Project</span>}
-            </Link>
-          </li>
-          <li>
-            <Link to="/settings" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded">
-              <Settings size={20} />
-              {isOpen && <span>Settings</span>}
+            <Link to="/aboutme" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded">
+              <Users size={20} />
+              {isOpen && <span>About Me</span>}
             </Link>
           </li>
         </ul>

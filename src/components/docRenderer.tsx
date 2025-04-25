@@ -11,26 +11,34 @@ interface Props {
 const DocRenderer: React.FC<Props> = ({ markdown }) => {
   return (
     <div className="prose prose-lg max-w-none prose-h1:text-3xl prose-h1:font-bold prose-h2:text-2xl prose-h2:font-semibold mb-4 ml-4 mr-4 mt-4">
-      <ReactMarkdown
-        remarkPlugins={[remarkGfm]}
-        components={{
-          code({ className, children }) {
-            const match = /language-(\w+)/.exec(className || '');
-            return (
-              <SyntaxHighlighter
-                style={materialDark}
-                language={match?.[1] || 'javascript'}
-                PreTag="div"
-              >
-                {String(children).replace(/\n$/, '')}
-              </SyntaxHighlighter>
-            );
-          },
-        }}
-      >
-        {markdown}
-      </ReactMarkdown>
-    </div>
+  <ReactMarkdown
+    remarkPlugins={[remarkGfm]}
+    components={{
+      code({ className, children }) {
+        const match = /language-(\w+)/.exec(className || '');
+        return (
+          <SyntaxHighlighter
+            style={materialDark}
+            language={match?.[1] || 'javascript'}
+            PreTag="div"
+          >
+            {String(children).replace(/\n$/, '')}
+          </SyntaxHighlighter>
+        );
+      },
+      img: ({ node, ...props }) => (
+        <img
+          {...props}
+          className="max-w-[600px] max-h-[400px] w-auto h-auto mx-auto my-4 rounded shadow"
+          alt={props.alt || ''}
+        />
+      ),
+    }}
+  >
+    {markdown}
+  </ReactMarkdown>
+</div>
+
   );
 };
 
