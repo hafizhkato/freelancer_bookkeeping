@@ -14,7 +14,7 @@ const Textract: React.FC = () => {
 
     const checkUploadLimit = async (identityId: string) => {
       try {
-        const response = await fetch("https://1onv8057gl.execute-api.ap-southeast-1.amazonaws.com/dev/upload-check", {
+        const response = await fetch("https://oivo725cgl.execute-api.ap-southeast-1.amazonaws.com/dev/upload-check", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ identityId }),
