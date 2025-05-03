@@ -11,6 +11,23 @@ const Textract: React.FC = () => {
     const [identityId, setIdentityId] = useState<string | null>(null);
     const { user } = useAuthenticator((context) => [context.user]); // Get user info
     const [markdown, setMarkdown] = useState('');
+
+    const checkUploadLimit = async (identityId: string) => {
+      try {
+        const response = await fetch("https://1onv8057gl.execute-api.ap-southeast-1.amazonaws.com/dev/upload-check", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ identityId }),
+        });
+    
+        const result = await response.json();
+        return result.allow;
+      } catch (err) {
+        console.error("Limit check failed:", err);
+        return false;
+      }
+    };
+    
     
       useEffect(() => {
         import('../../docs/textract-project.md?raw')
@@ -64,18 +81,24 @@ const Textract: React.FC = () => {
   }, [identityId]);
       
   
-      const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-          if (event.target.files && event.target.files.length > 0) {
-            setFile(event.target.files[0]); // ✅ Trigger re-fetch by updating the file state
-          }
-          };
+  const handleChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files.length > 0) {
+      const isAllowed = await checkUploadLimit(identityId!); // ✅ Pass identityId as an argument
+      if (!isAllowed) {
+        alert("Upload limit reached. Please try again after 3 hours.");
+        return;
+      }
+  
+      setFile(event.target.files[0]); // ✅ Trigger re-fetch by updating the file state
+    }
+  };
       
         // upload file to S3
         useEffect(() => {
           if (file) {
       
             // Allowed image types (including JFIF)
-            const allowedTypes = ["image/jpeg", "image/png", "image/webp", "image/jfif", , "image/jpg"];
+            const allowedTypes = ["image/jpeg", "image/png", "image/webp", "image/jfif", "image/jpg", "application/pdf"];
       
             // Check if file is an image
             if (!allowedTypes.includes(file.type)) {
@@ -143,6 +166,10 @@ const Textract: React.FC = () => {
             </div>
 
       <div className="flex flex-col items-center justify-center h-auto bg-gray-300 p-4">
+        <h2 className="text-2xl font-bold mb-4">Upload Document</h2>
+        <p className="text-gray-600 mb-4">Upload a document to extract data using AWS Textract.</p>
+        <p className="text-gray-600 mb-4">Note: Only images (JPG, JFIF, PNG, WebP, Pdf) are allowed.</p>
+        <p className="text-gray-600 mb-4">File size limit: 5MB.</p>
       <div className="shadow-lg rounded-lg p-6 w-80 text-center bg-gray-100">
         <label className="flex flex-col items-center p-4 border-2 border-dashed border-gray-600 rounded-lg cursor-pointer hover:bg-gray-50">
           <Upload className="w-12 h-12 text-gray-500 mb-2" />

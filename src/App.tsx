@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Sidebar from "./scenes/global/sidebar";
 // import Navbar from "./scenes/global/navbar";
 import { SidebarProvider } from "./context/SidebarContext";
-import Informationbar from "./scenes/global/informationbar";
 import Dashboard from "./scenes/dashboard";
 import Income from "./scenes/income";
 import Textract from "./scenes/textract";
@@ -50,8 +49,6 @@ const App = () => {
               <Route path="/projects/database-migration/phase2" element={<PhaseTwo/>} />
             </Routes>
           </div>
-          <Informationbar
-          /> 
           </div>
         </div>
       </div>
