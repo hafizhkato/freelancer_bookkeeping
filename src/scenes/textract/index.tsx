@@ -169,7 +169,7 @@ const Textract: React.FC = () => {
         <h2 className="text-2xl font-bold mb-4">Upload Document</h2>
         <p className="text-gray-600 mb-4">Upload a document to extract data using AWS Textract.</p>
         <p className="text-gray-600 mb-4">Note: Only images (JPG, JFIF, PNG, WebP, Pdf) are allowed.</p>
-        <p className="text-gray-600 mb-4">File size limit: 5MB.</p>
+        <p className="text-gray-600 mb-4">File size limit: 5MB. And to save my cloud bills I only allowed 5 file upload per account</p>
       <div className="shadow-lg rounded-lg p-6 w-80 text-center bg-gray-100">
         <label className="flex flex-col items-center p-4 border-2 border-dashed border-gray-600 rounded-lg cursor-pointer hover:bg-gray-50">
           <Upload className="w-12 h-12 text-gray-500 mb-2" />

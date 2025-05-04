@@ -1,10 +1,12 @@
 
 import { Link } from "react-router-dom";
-import { LayoutDashboard, Database, Cloud, Users, Menu} from "lucide-react";
+import { LayoutDashboard, Database, Cloud, Users, Menu, LogOutIcon} from "lucide-react";
 import { useSidebar } from "../../context/SidebarContext"; // Import context
+import { useAuthenticator } from '@aws-amplify/ui-react';
 
 const Sidebar = () => {
   const { isOpen, setIsOpen } = useSidebar();
+  const { signOut } = useAuthenticator();
 
   return (
     <div className={` ${isOpen ? "w-64" : "w-20"} light bg-gray-800 text-white p-5 border border-white rounded-lg transition-all duration-300`}>
@@ -44,6 +46,12 @@ const Sidebar = () => {
               {isOpen && <span>About Me</span>}
             </Link>
           </li>
+            <li>
+            <button onClick={signOut} className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded">
+              <LogOutIcon size={20} />
+              {isOpen && <span>About Me</span>}
+            </button>
+          </li>  
         </ul>
       </nav>
     </div>

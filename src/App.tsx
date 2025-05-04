@@ -15,9 +15,30 @@ import OngoingProject from "./scenes/ongoing-project";
 import PhaseOne from "./scenes/database-migration/phase/phaseOne";
 import PhaseOnePartTwo from "./scenes/database-migration/phase/phaseOnepartTwo";
 import PhaseTwo from "./scenes/database-migration/phase/phaseTwoandThree";
+import MultiState from "./scenes/devops/multi-state-env";
+import { Authenticator } from '@aws-amplify/ui-react';
+import { useAuthenticator } from '@aws-amplify/ui-react';
+import { JSX } from "react/jsx-runtime";
+
+function ProtectedRoute({ children }: { children: JSX.Element }) {
+  const { authStatus } = useAuthenticator();
+
+  if (authStatus !== 'authenticated') {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <Authenticator />
+      </div>
+    );
+  }
+
+  return children;
+}
 
 const App = () => {
+
   return (
+    <Authenticator.Provider>
+    
     
     <Router>
       <SidebarProvider>
@@ -36,10 +57,14 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Dashboard/>} />
               <Route path="/income" element={<Income/>} /> 
-              <Route path="/projects/textract-app" element={<Textract/>} />
+              <Route path="/projects/textract-app" element={<ProtectedRoute>
+            <Textract />
+          </ProtectedRoute>} />
               <Route path="/settings" element={<Settings/>} />
               <Route path="/projects/terraform-ec2" element={<Ec2Terraform/>} />
-              <Route path="/projects/client-management" element={<Client/>} />
+              <Route path="/projects/client-management" element={<ProtectedRoute>
+            <Client />
+          </ProtectedRoute>} />
               <Route path="/aboutme" element={<UserProfile/>} />
               <Route path="/projects/severless-image-processing" element={<ImageProcessing/>} />
               <Route path="/projects/database-migration" element={<OngoingProject/>} />
@@ -47,6 +72,8 @@ const App = () => {
               <Route path="/projects/database-migration/phase1" element={<PhaseOne/>} />
               <Route path="/projects/database-migration/phase1part2" element={<PhaseOnePartTwo/>} />
               <Route path="/projects/database-migration/phase2" element={<PhaseTwo/>} />
+              <Route path="/projects/multi-state-env" element={<MultiState/>} />
+              
             </Routes>
           </div>
           </div>
@@ -54,7 +81,7 @@ const App = () => {
       </div>
       </SidebarProvider>
     </Router>
-    
+    </Authenticator.Provider>
   );
 };
 
