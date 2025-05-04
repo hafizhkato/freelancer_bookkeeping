@@ -26,6 +26,8 @@ This project is a **serverless document processing pipeline** that extracts stru
 6. **CloudFront-Signed URL for Secure Access**  
    Files are served securely through **CloudFront** using signed URLs to prevent unauthorized access and hide the raw S3 endpoint.
 
+![Compression Output](https://d3vc6iedgmxs4m.cloudfront.net/Textract123.png)
+
 ---
 
 ## 3. Tech Stack
@@ -83,4 +85,13 @@ This project is a **serverless document processing pipeline** that extracts stru
 - Real-time OCR for any back-office automation
 
 ---
+
+## 8. Additional Feature: Upload Limit per User
+
+To enhance control over resource usage and prevent abuse, I implemented a file upload limit of 5 files per user account. This ensures fair usage and encourages users to manage their uploads efficiently.
+
+- **Implementation Details:**
+- - A RESTful API endpoint was created to interact with Amazon DynamoDB, allowing the system to query and track the number of uploads associated with each authenticated user. The users session is set to TTL after 3 hours.
+- - The logic is handled through an AWS Lambda function, which validates the current upload count before permitting any new uploads.
+- - If a user exceeds the upload limit, the API responds with a clear message preventing further uploads until the data in dynamoDb is deleted automatically after 3 hours.
 

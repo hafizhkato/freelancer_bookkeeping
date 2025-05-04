@@ -40,13 +40,23 @@ const UserProfile: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
       >
-        <h1 className="text-3xl font-bold mb-4">Hi, I'm Hafizh Zulkifli</h1>
-        <h2 className="text-xl font-semibold mb-4">Welcome to my Portfolio</h2>
+        <h1 className="text-3xl font-bold mb-4">Hi, My Name is Hafizh Zulkifli</h1>
+        <h2 className="text-xl font-semibold mb-4">Just feel like creating some website. Anyways I hope you find something useful here</h2>
         <p className="text-lg leading-relaxed mb-10">
-          I'm passionate about automating infrastructure and building backend systems that scale. I love working with AWS, creating CI/CD pipelines, and making development processes smoother and more efficient.
-          <br />
-          My goal is to become a skilled cloud engineer, help businesses migrate and optimize in the cloud, and eventually lead innovative tech projects that solve real-world problems.
+        I'm a self-taught DevOps and cloud enthusiast with a passion for automation, 
+        scalability, and elegant backend systems. Each day, I dive deeper into the world of Linux, 
+        networking, cloud architecture, and infrastructure as code. Driven by curiosity and a desire to master the tools that 
+        power modern development.
+          <br /><br />
+        I thrive in environments where I can streamline workflows, build resilient infrastructure on AWS, and craft CI/CD pipelines 
+        that make deployment faster, safer, and smarter. Whether it's automating server provisioning, optimizing cloud costs, or 
+        designing scalable backend services, I find energy in solving complex technical challenges.
+        <br /><br />
+        My goal is to become a highly skilled cloud engineer, not just someone who works with cloud technology, 
+        but someone who helps businesses truly leverage it. Long-term, I want to lead transformative projects that 
+        blend innovation with impact.
         </p>
+
       </motion.div>
 
       {/* Skills Section */}

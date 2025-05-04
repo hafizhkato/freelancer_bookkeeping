@@ -32,7 +32,7 @@ const Dashboard: React.FC = () => {
 
             <section className="mb-10">
                 <h2 className="text-2xl font-semibold mb-4">Authenticated Projects</h2>
-                <Paragraph text= 'These projects require authentication to access.'/>
+                <Paragraph text="These projects are secured and require authentication. Simply click on a project and if you don't have an account yet, you'll be prompted to sign up." />
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {AuthenticatedProjects.map((project, index) => (
                         <Link key={index} to={project.link} className="border p-4 rounded-2xl shadow hover:shadow-lg transition block">
@@ -44,7 +44,7 @@ const Dashboard: React.FC = () => {
             </section>
 
             <section className="mb-10">
-                <h2 className="text-2xl font-semibold mb-4">Highlight Projects</h2>
+                <h2 className="text-2xl font-semibold mb-4">Terraform Projects</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {highlightProjects.map((project, index) => (
                         <Link key={index} to={project.link} className="border p-4 rounded-2xl shadow hover:shadow-lg transition block">

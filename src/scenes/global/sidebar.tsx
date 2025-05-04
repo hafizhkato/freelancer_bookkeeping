@@ -35,7 +35,7 @@ const Sidebar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/textract" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded">
+            <Link to="/serverless-project" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded">
               <Cloud size={20} />
               {isOpen && <span>Serverless Application</span>}
             </Link>
@@ -49,7 +49,7 @@ const Sidebar = () => {
             <li>
             <button onClick={signOut} className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded">
               <LogOutIcon size={20} />
-              {isOpen && <span>About Me</span>}
+              {isOpen && <span>Sign Out</span>}
             </button>
           </li>  
         </ul>

@@ -180,6 +180,18 @@ const Textract: React.FC = () => {
     </div>
      <DocRenderer markdown={markdown} /> 
 
+     <div className="mt-2 ml-6 mb-10">
+                <a 
+                    href="https://github.com/hafizhkato/Upload-Limit"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-2 text-gray-700 hover:text-gray-900 transition-colors"
+                >
+                    <GithubIcon className="w-12 h-12" />
+                    <span className="text-xl">Github for Upload Limit</span>
+                </a>
+            </div>
+
     </div>
   );
 };

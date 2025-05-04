@@ -2,6 +2,8 @@
 
 ## 1. Project Overview
 
+![Compression Output](https://d3vc6iedgmxs4m.cloudfront.net/vpc-network.png)
+
 This project provisions a basic **AWS infrastructure using Terraform**, including a VPC, subnets (public and private), internet access via an Internet Gateway and NAT Gateway, and a public EC2 instance running Docker. It's ideal for beginners learning Infrastructure as Code (IaC) and understanding basic AWS networking principles.
 
 ---
