@@ -100,12 +100,12 @@ const LandingPage: React.FC = () => {
         </FadeInSection>
     
         {/* About Me Section */}
-        <section id="aboutme" className="mt-32 py-16 bg-gray-50">
+        <section id="aboutme" className="mt-32 py-10 bg-gray-100">
             <FadeInSection>
                 <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 px-6">
                 {/* Left: Image */}
                 <div className="md:w-1/2 flex justify-center">
-                <div className="w-80 h-64 md:w-[28rem] md:h-80 rounded-lg overflow-hidden shadow-lg border-4 border-gray-200">
+                <div className="w-80 h-64 md:w-[40rem] md:h-[28rem] rounded-lg overflow-hidden shadow-lg border-4 border-gray-200">
                     <img
                         src="https://d3vc6iedgmxs4m.cloudfront.net/line123.jpg"
                         alt="About Me"
@@ -204,9 +204,6 @@ const LandingPage: React.FC = () => {
 
                 {/* Optional direct links */}
                 <div className="mt-10 space-y-2">
-                <a href="mailto:hafizhzulkifli@gmail.com" className="text-indigo-400 hover:underline block">
-                    📧 hafizhzulkifli@gmail.com
-                </a>
                 <a
                     href="https://www.linkedin.com/in/hafizh-zulkifli-5197b335b/"
                     target="_blank"

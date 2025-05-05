@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { LayoutDashboard, Database, Cloud, Users, Menu, LogOutIcon} from "lucide-react";
+import { LayoutDashboard, Database, Cloud, Users, Menu, LogOutIcon, Globe, Server} from "lucide-react";
 import { useSidebar } from "../../context/SidebarContext"; // Import context
 import { useAuthenticator } from '@aws-amplify/ui-react';
 
@@ -24,8 +24,14 @@ const Sidebar = () => {
         <ul className="space-y-5 font-poppins text-lg">
           <li>
             <Link to="/" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded ">
-              <LayoutDashboard size={20} />
+              <Globe size={20} />
               {isOpen && <span>Main Menu</span>}
+            </Link>
+          </li>
+          <li>
+            <Link to="/dashboard" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded ">
+              <LayoutDashboard size={20} />
+              {isOpen && <span>Dashboard</span>}
             </Link>
           </li>
           <li>
@@ -38,6 +44,12 @@ const Sidebar = () => {
             <Link to="/serverless-project" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded">
               <Cloud size={20} />
               {isOpen && <span>Serverless Application</span>}
+            </Link>
+          </li>
+          <li>
+            <Link to="/devops-project" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded ">
+              <Server size={20} />
+              {isOpen && <span>DevOps Project</span>}
             </Link>
           </li>
           <li>

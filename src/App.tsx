@@ -18,6 +18,7 @@ import PhaseTwo from "./scenes/database-migration/phase/phaseTwoandThree";
 import ServerlessProject from "./scenes/serverless-project";
 import MultiState from "./scenes/devops/multi-state-env";
 import LandingPage from "./scenes/landing-page";
+import DevopsProject from "./scenes/devops";
 import { Authenticator } from '@aws-amplify/ui-react';
 import { useAuthenticator } from '@aws-amplify/ui-react';
 import { JSX } from "react/jsx-runtime";
@@ -77,6 +78,7 @@ const App = () => {
               <Route path="/projects/database-migration/phase2" element={<PhaseTwo/>} />
               <Route path="/projects/multi-state-env" element={<MultiState/>} />
               <Route path="/serverless-project" element={<ServerlessProject/>} />
+              <Route path="/devops-project" element={<DevopsProject/>} />
               
               
             </Routes>

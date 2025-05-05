@@ -73,7 +73,7 @@ Migrate an on-premises MySQL database to a highly available and scalable cloud e
 
 ## 📋 Phase 4: Validation & Cutover Plan
 
-✅ Tasks
+⏳ Tasks
 
 - Validate row count and integrity between source and target DBs. 
 - Run application queries against new RDS endpoint 
@@ -85,7 +85,7 @@ Migrate an on-premises MySQL database to a highly available and scalable cloud e
 
 ## 🔁 Phase 5: Backup & Rollback
 
-✅ Tasks
+⏳ Tasks
 
 - Take a manual snapshot before and after cutover. 
 - Document rollback plan: how to revert to on-prem MySQL if needed. 
@@ -95,7 +95,7 @@ Migrate an on-premises MySQL database to a highly available and scalable cloud e
 
 ## 📈 Phase 6: Optimization & Monitoring
 
-✅ Tasks
+⏳ Tasks
 
 - Enable RDS performance insights. 
 - Tune DB parameters via RDS Parameter Group. 
