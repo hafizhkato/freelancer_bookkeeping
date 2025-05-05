@@ -32,7 +32,7 @@ const LandingPage: React.FC = () => {
       setSuccess(null);
   
       try {
-        const response = await fetch("https://t808ug7po6.execute-api.ap-southeast-1.amazonaws.com/contact", {
+        const response = await fetch("https://vyk4ibzt05.execute-api.ap-southeast-1.amazonaws.com/dev/contact", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(form),
