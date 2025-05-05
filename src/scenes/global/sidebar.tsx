@@ -25,7 +25,7 @@ const Sidebar = () => {
           <li>
             <Link to="/" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded ">
               <LayoutDashboard size={20} />
-              {isOpen && <span>Dashboard</span>}
+              {isOpen && <span>Main Menu</span>}
             </Link>
           </li>
           <li>

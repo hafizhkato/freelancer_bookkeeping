@@ -17,6 +17,7 @@ import PhaseOnePartTwo from "./scenes/database-migration/phase/phaseOnepartTwo";
 import PhaseTwo from "./scenes/database-migration/phase/phaseTwoandThree";
 import ServerlessProject from "./scenes/serverless-project";
 import MultiState from "./scenes/devops/multi-state-env";
+import LandingPage from "./scenes/landing-page";
 import { Authenticator } from '@aws-amplify/ui-react';
 import { useAuthenticator } from '@aws-amplify/ui-react';
 import { JSX } from "react/jsx-runtime";
@@ -56,7 +57,8 @@ const App = () => {
           <div className="flex flex-1 light bg-gray-300 ">
           <div className="flex-1 overflow-y-auto ">
             <Routes>
-              <Route path="/" element={<Dashboard/>} />
+              <Route path="/" element={<LandingPage/>} />
+              <Route path="/dashboard" element={<Dashboard/>} />
               <Route path="/income" element={<Income/>} /> 
               <Route path="/projects/textract-app" element={<ProtectedRoute>
             <Textract />
@@ -75,6 +77,7 @@ const App = () => {
               <Route path="/projects/database-migration/phase2" element={<PhaseTwo/>} />
               <Route path="/projects/multi-state-env" element={<MultiState/>} />
               <Route path="/serverless-project" element={<ServerlessProject/>} />
+              
               
             </Routes>
           </div>
