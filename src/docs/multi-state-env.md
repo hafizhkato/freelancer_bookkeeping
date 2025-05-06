@@ -34,10 +34,12 @@ This project showcases a complete CI/CD pipeline with **multi-environment deploy
 | **staging**    | Staging     | AWS Staging Infrastructure |
 | **main**       | Production  | AWS Production Infrastructure |
 
+![Compression Output](https://d3vc6iedgmxs4m.cloudfront.net/branch.png)
+
 Each push to a specific branch automatically triggers:
-- App build
-- Docker image push to ECR
-- Environment-specific deployment via ECS / EC2 / S3
+- 1. App build
+- 2. Docker image push to ECR
+- 3. Environment-specific deployment via ECS / EC2 / S3
 
 ---
 
@@ -50,16 +52,15 @@ Each push to a specific branch automatically triggers:
 | 3     | GitHub Actions (CI/CD)       | ✅ Done |
 | 4     | Secrets & Env Management     | ✅ Done |
 | 5     | Tests & Linting Integration  | ✅ Done |
-| 6     | Dashboard & Monitoring       | ⏳     |
 
 ---
 
 ## 📸 Demo Screenshots
 
-Coming soon! Will include:
-- CI/CD run success
-- Environment-specific deployment URLs
-- Terraform infra diagram
+- **CI/CD run success**
+![Compression Output](https://d3vc6iedgmxs4m.cloudfront.net/workflow1.png)
+![Compression Output](https://d3vc6iedgmxs4m.cloudfront.net/workflow2.png)
+
 
 ---
 
@@ -74,9 +75,3 @@ Modern companies demand:
 This project demonstrates **all of the above**.
 
 ---
-
-## 🧠 Author
-
-**Hafizh Zulkifli**  
-Cloud Developer • DevOps Learner • AWS Enthusiast  
-[bangsalkerinci.com] | [hafizhzulkifli] 

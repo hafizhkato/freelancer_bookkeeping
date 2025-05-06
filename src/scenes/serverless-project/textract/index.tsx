@@ -3,8 +3,8 @@ import { Upload, GithubIcon } from "lucide-react";
 import { uploadData, remove, list } from 'aws-amplify/storage';
 import { fetchAuthSession } from "aws-amplify/auth";
 import { useAuthenticator } from "@aws-amplify/ui-react";
-import Header from '../../components/header';
-import DocRenderer from "../../components/docRenderer";
+import Header from '../../../components/header';
+import DocRenderer from "../../../components/docRenderer";
 
 const Textract: React.FC = () => {
     const [file, setFile] = useState<File | null>(null);
@@ -30,7 +30,7 @@ const Textract: React.FC = () => {
     
     
       useEffect(() => {
-        import('../../docs/textract-project.md?raw')
+        import('../../../docs/textract-project.md?raw')
           .then((res) => setMarkdown(res.default));
       }, []);
 

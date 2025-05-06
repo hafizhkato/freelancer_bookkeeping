@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Settings: React.FC = () => {
+const Category: React.FC = () => {
     return (
         <div>
-            <h1>Hello this is setting</h1>
+            <h1>Hello this is category</h1>
         </div>
     );
 };
 
-export default Settings;
+export default Category;

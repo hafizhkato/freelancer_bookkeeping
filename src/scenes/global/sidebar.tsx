@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { LayoutDashboard, Database, Cloud, Users, Menu, LogOutIcon, Globe, Server} from "lucide-react";
+import { Database, Cloud, Menu, LogOutIcon, Globe, Server, Boxes} from "lucide-react";
 import { useSidebar } from "../../context/SidebarContext"; // Import context
 import { useAuthenticator } from '@aws-amplify/ui-react';
 
@@ -29,12 +29,6 @@ const Sidebar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/dashboard" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded ">
-              <LayoutDashboard size={20} />
-              {isOpen && <span>Dashboard</span>}
-            </Link>
-          </li>
-          <li>
             <Link to="/projects/database-migration" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded ">
               <Database size={20} />
               {isOpen && <span>Database Project</span>}
@@ -53,9 +47,9 @@ const Sidebar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/aboutme" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded">
-              <Users size={20} />
-              {isOpen && <span>About Me</span>}
+            <Link to="/other-project" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded ">
+              <Boxes size={20} />
+              {isOpen && <span>Others Project</span>}
             </Link>
           </li>
             <li>

@@ -3,13 +3,13 @@ import Sidebar from "./scenes/global/sidebar";
 // import Navbar from "./scenes/global/navbar";
 import { SidebarProvider } from "./context/SidebarContext";
 import Dashboard from "./scenes/dashboard";
+import UploadLimit from "./scenes/serverless-project/limit-API";
 import Income from "./scenes/income";
-import Textract from "./scenes/textract";
+import Textract from "./scenes/serverless-project/textract";
 import Settings from "./scenes/settings";
 import Client from "./scenes/client";
-import UserProfile from "./scenes/users";
 import Ec2Terraform from "./scenes/ec2Terraform";
-import ImageProcessing from "./scenes/image-processing";
+import ImageProcessing from "./scenes/serverless-project/image-processing";
 import DatabaseMigration from "./scenes/database-migration";
 import OngoingProject from "./scenes/ongoing-project";
 import PhaseOne from "./scenes/database-migration/phase/phaseOne";
@@ -18,7 +18,9 @@ import PhaseTwo from "./scenes/database-migration/phase/phaseTwoandThree";
 import ServerlessProject from "./scenes/serverless-project";
 import MultiState from "./scenes/devops/multi-state-env";
 import LandingPage from "./scenes/landing-page";
+import OthersProject from "./scenes/others-project";
 import DevopsProject from "./scenes/devops";
+import ContactForm from "./scenes/serverless-project/contact-form";
 import { Authenticator } from '@aws-amplify/ui-react';
 import { useAuthenticator } from '@aws-amplify/ui-react';
 import { JSX } from "react/jsx-runtime";
@@ -69,7 +71,6 @@ const App = () => {
               <Route path="/projects/client-management" element={<ProtectedRoute>
             <Client />
           </ProtectedRoute>} />
-              <Route path="/aboutme" element={<UserProfile/>} />
               <Route path="/projects/severless-image-processing" element={<ImageProcessing/>} />
               <Route path="/projects/database-migration" element={<OngoingProject/>} />
               <Route path="/projects/database-migration/planning" element={<DatabaseMigration/>} />
@@ -79,6 +80,9 @@ const App = () => {
               <Route path="/projects/multi-state-env" element={<MultiState/>} />
               <Route path="/serverless-project" element={<ServerlessProject/>} />
               <Route path="/devops-project" element={<DevopsProject/>} />
+              <Route path="/other-project" element={<OthersProject/>} />
+              <Route path="/projects/upload-limit-api" element={<UploadLimit/>} />
+              <Route path="/projects/contact-form" element={<ContactForm/>} />
               
               
             </Routes>

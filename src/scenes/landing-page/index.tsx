@@ -58,25 +58,28 @@ const LandingPage: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen bg-white text-black px-6 py-12">
+        <div className="min-h-screen bg-white text-black px-1 py-0.5">
         {/* Navbar */}
-        <nav className="flex justify-end space-x-6 text-sm font-semibold mb-12">
-            <a href="#aboutme" className="hover:underline">About Me</a>
-            <a href="#skills" className="hover:underline">Skills</a>
-            <a href="#contact" className="hover:underline">Contact</a>
-        </nav>
+        
+        <div className="text-black p-6 rounded-lg shadow-md">
+            <nav className="flex justify-end space-x-6 text-lg font-semibold">
+                <a href="#aboutme" className="hover:underline">About Me</a>
+                <a href="#skills" className="hover:underline">Skills</a>
+                <a href="#contact" className="hover:underline">Contact</a>
+            </nav>
+        </div>
     
         {/* Hero Section */}
         <FadeInSection>
-        <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between">
+        <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between mt-20">
             <div className="md:w-1/2 text-center md:text-left">
                 <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
                     Hi <span className="inline-block">👋</span>,<br />
                     I’m <span className="text-indigo-600">Hafizh Zulkifli</span>,<br />
-                    Cloud Engineer & DevOps Engineer
+                    Cloud Engineer
                 </h1>
                 <p className="text-gray-600 text-base md:text-lg mb-6">
-                    I am a Cloud Engineer and DevOps Engineer with a passion for building scalable and efficient cloud solutions. I specialize in AWS, Terraform, and CI/CD pipelines. I love solving complex problems and automating processes to improve efficiency.
+                    I am a Cloud Engineer with a passion for building scalable and efficient cloud solutions. I specialize in AWS, Terraform, and CI/CD pipelines. I love solving complex problems and automating processes to improve efficiency.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                     <Link to="/dashboard">
@@ -90,7 +93,7 @@ const LandingPage: React.FC = () => {
             <div className="md:w-1/2 flex justify-center md:justify-end mb-12 md:mb-0">
                 <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-black shadow-lg">
                     <img
-                        src="https://d3vc6iedgmxs4m.cloudfront.net/profile-2.jpg"
+                        src="https://d3vc6iedgmxs4m.cloudfront.net/profile-3.png"
                         alt="Profile"
                         className="object-cover w-full h-full"
                     />
@@ -107,7 +110,7 @@ const LandingPage: React.FC = () => {
                 <div className="md:w-1/2 flex justify-center">
                 <div className="w-80 h-64 md:w-[40rem] md:h-[28rem] rounded-lg overflow-hidden shadow-lg border-4 border-gray-200">
                     <img
-                        src="https://d3vc6iedgmxs4m.cloudfront.net/line123.jpg"
+                        src="https://d3vc6iedgmxs4m.cloudfront.net/main-2.jpg"
                         alt="About Me"
                         className="w-full h-full object-cover"
                     />
@@ -118,9 +121,18 @@ const LandingPage: React.FC = () => {
                 <div className="md:w-1/2 text-center md:text-left">
                     <h2 className="text-3xl font-bold mb-4">About Me</h2>
                     <p className="text-gray-700 text-base md:text-lg">
-                    I'm a self-driven engineer with a background in building scalable cloud infrastructure and automating DevOps workflows. I transitioned into tech to help businesses grow faster and more reliably using modern cloud-native tools.
+                    I'm a self-taught DevOps and cloud enthusiast with a passion for automation, 
+                    scalability, and elegant backend systems. Each day, I dive deeper into the world of Linux, 
+                    networking, cloud architecture, and infrastructure as code. Driven by curiosity and a desire to master the tools that 
+                    power modern development.
                     <br /><br />
-                    Whether it's provisioning with Terraform, setting up CI/CD pipelines, or optimizing AWS services, I bring passion, precision, and a focus on delivering value.
+                    I thrive in environments where I can streamline workflows, build resilient infrastructure on AWS, and craft CI/CD pipelines 
+                    that make deployment faster, safer, and smarter. Whether it's automating server provisioning, optimizing cloud costs, or 
+                    designing scalable backend services, I find energy in solving complex technical challenges.
+                    <br /><br />
+                    My goal is to become a highly skilled cloud engineer, not just someone who works with cloud technology, 
+                    but someone who helps businesses truly leverage it. Long-term, I want to lead transformative projects that 
+                    blend innovation with impact.
                     </p>
                 </div>
                 </div>
@@ -128,10 +140,10 @@ const LandingPage: React.FC = () => {
         </section>
     
         {/* Skills Section */}
-        <section id="skills" className="mt-0 py-16 bg-white text-center">
+        <section id="skills" className="mt-0 py-10 bg-white text-center">
         <FadeInSection>
-            <h2 className="text-3xl font-bold mb-6">Skills</h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold mb-16">Skills</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-10">
                 {skills.map(({ name, icon }) => (
                     <div key={name} className="flex flex-col items-center space-y-2">
                     <img src={icon} alt={name} className="w-12 h-12" />
@@ -143,7 +155,7 @@ const LandingPage: React.FC = () => {
         </section>
     
         {/* Contact Section */}
-        <section id="contact" className="py-20 bg-gray-900 text-white text-center">
+        <section id="contact" className="py-20 bg-gray-800 text-white text-center rounded-lg">
             <FadeInSection>
                 <h2 className="text-3xl font-bold mb-4">Contact</h2>
                 <p className="text-gray-300 mb-10">

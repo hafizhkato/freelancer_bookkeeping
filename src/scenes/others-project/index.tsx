@@ -2,18 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../components/header';
 import Paragraph from '../../components/paragraph';
-import serverlessProjects from '../../data/serverlessData';
+import othersProjects from '../../data/othersData';
 import FadeInSection from '../../components/fadeInSection';
 
-const ServerlessProject: React.FC = () => {
+
+const OthersProject: React.FC = () => {
     return (
         <div className="p-6 max-w-6xl mx-auto">
           <Header
-            title="My Serverless Project"
-            subtitle="A collection of serverless projects built with AWS Lambda, often paired with services like S3, SQS, and API Gateway to create scalable, efficient solutions."
+            title="My Other Projects"
+            subtitle='A collection of my other projects that I dont know where to put them.'
           />
-      <FadeInSection>
-          {serverlessProjects.map((section, index) => (
+        <FadeInSection>
+          {othersProjects.map((section, index) => (
             <section key={index} className={`mb-10 ${section.bgColor} p-6 rounded-lg shadow-md`}>
               <h2 className="text-2xl font-semibold mb-4">{section.title}</h2>
               {section.paragraphs.map((text, idx) => (
@@ -38,4 +39,4 @@ const ServerlessProject: React.FC = () => {
       );
     };
 
-export default ServerlessProject;
+export default OthersProject;

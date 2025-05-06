@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import FadeInSection from '../../components/fadeInSection';
 
 const projectOverview = [
     { title: 'MySQL Database Migration: On-Prem to AWS Cloud', description: 'Project Overview and Planning Phase', link: '/projects/database-migration/planning' },
@@ -15,7 +16,9 @@ const phaseDocumentation = [
 const OngoingProject: React.FC = () => {
     return (
         <div className="p-6 max-w-6xl mx-auto">
-            <h1 className="text-4xl font-bold mb-6">My Database Migration Project</h1>
+            <h1 className="text-4xl font-bold mb-6">My Database Project</h1>
+
+            <FadeInSection>
 
             <section className="mb-10">
                 <h2 className="text-2xl font-semibold mb-4">Project Planning</h2>
@@ -41,7 +44,7 @@ const OngoingProject: React.FC = () => {
                     ))}
                 </div>
             </section>
-
+        </FadeInSection>
         </div>
     );
 };

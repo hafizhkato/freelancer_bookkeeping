@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../components/header';
 import Paragraph from '../../components/paragraph';
+import FadeInSection from '../../components/fadeInSection';
 
 const multiEnvOverview = [
     { title: 'Multi State Environment Pipeline', description: 'showcases a complete CI/CD pipeline with multi-environment deployment', link: '/projects/multi-state-env' },
@@ -18,9 +19,7 @@ const DevopsProject: React.FC = () => {
   title="My DevOps Projects"
   subtitle="A collection of DevOps projects that showcase my skills in automation, CI/CD, and infrastructure as code."
 />
-
-            {/* GitHub Icon Link below Header */}
-
+        <FadeInSection>
             <section className="mb-10 bg-gray-200 p-6 rounded-lg shadow-md">
                 <h2 className="text-2xl font-semibold mb-4">Multi State Environment Pipeline</h2>
                 <Paragraph text="This is my first time using GitHub Workflows. I've set up three environments: dev, staging, and prod. Every push to a branch will automatically trigger the pipeline for the corresponding stage." />
@@ -33,7 +32,7 @@ const DevopsProject: React.FC = () => {
                         </Link>
                     ))}
                 </div>
-            </section>
+            </section></FadeInSection>
 
             {/* <section className="mb-10">
                 <h2 className="text-2xl font-semibold mb-4">Serverless Image Processing</h2>
