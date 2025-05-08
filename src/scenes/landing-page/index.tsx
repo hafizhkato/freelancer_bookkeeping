@@ -217,7 +217,7 @@ const LandingPage: React.FC = () => {
                 {/* Optional direct links */}
                 <div className="mt-10 space-y-2">
                 <a
-                    href="https://www.linkedin.com/in/hafizh-zulkifli-5197b335b/"
+                    href="www.linkedin.com/in/hafizh-zulkifli-5197b335b"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-indigo-400 hover:underline block"
