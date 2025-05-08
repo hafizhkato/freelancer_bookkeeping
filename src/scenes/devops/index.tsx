@@ -22,7 +22,7 @@ const DevopsProject: React.FC = () => {
         <FadeInSection>
             <section className="mb-10 bg-gray-200 p-6 rounded-lg shadow-md">
                 <h2 className="text-2xl font-semibold mb-4">Multi State Environment Pipeline</h2>
-                <Paragraph text="This is my first time using GitHub Workflows. I've set up three environments: dev, staging, and prod. Every push to a branch will automatically trigger the pipeline for the corresponding stage." />
+                <Paragraph text="I've set up three environments: dev, staging, and prod. Every push to a branch will automatically trigger the pipeline for the corresponding stage. I am using Terraform, Github Actions and Docker" />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {multiEnvOverview.map((project, index) => (
