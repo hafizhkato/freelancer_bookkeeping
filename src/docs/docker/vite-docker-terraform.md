@@ -19,7 +19,7 @@ I automated the deployment process for my Dockerized backend app using GitHub Ac
 
 - It fills in a task definition template, registers a new ECS Task Definition version, and tells ECS to update the running service with the new image.
 
-![Compression Output](https://d3vc6iedgmxs4m.cloudfront.net/docker-projects/workflow-2.png)
+![Compression Output](https://d3vc6iedgmxs4m.cloudfront.net/docker-projects/workflow-3.png)
 
 ---
 
