@@ -20,6 +20,7 @@ import MultiState from "./scenes/devops/multi-state-env";
 import LandingPage from "./scenes/landing-page";
 import OthersProject from "./scenes/others-project";
 import DevopsProject from "./scenes/devops";
+import ViteInfra from "./scenes/devops/vite-app";
 import ContactForm from "./scenes/serverless-project/contact-form";
 import { Authenticator } from '@aws-amplify/ui-react';
 import { useAuthenticator } from '@aws-amplify/ui-react';
@@ -47,7 +48,7 @@ const App = () => {
     
     <Router>
       <SidebarProvider>
-      <div className="flex min-h-screen light bg-gray-300">
+      <div className="flex min-h-screen light bg-gray-50">
         {/* Sidebar */}
         <Sidebar />
 
@@ -57,7 +58,7 @@ const App = () => {
           
 
           {/* Main Content */}
-          <div className="flex flex-1 light bg-gray-300 ">
+          <div className="flex flex-1 light bg-gray-50 ">
           <div className="flex-1 overflow-y-auto ">
             <Routes>
               <Route path="/" element={<LandingPage/>} />
@@ -83,6 +84,7 @@ const App = () => {
               <Route path="/other-project" element={<OthersProject/>} />
               <Route path="/projects/upload-limit-api" element={<UploadLimit/>} />
               <Route path="/projects/contact-form" element={<ContactForm/>} />
+              <Route path="/projects/vite-app-infrastructure" element={<ViteInfra/>} />
               
               
             </Routes>
