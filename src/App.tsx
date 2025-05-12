@@ -84,7 +84,7 @@ const App = () => {
               <Route path="/other-project" element={<OthersProject/>} />
               <Route path="/projects/upload-limit-api" element={<UploadLimit/>} />
               <Route path="/projects/contact-form" element={<ContactForm/>} />
-              <Route path="/projects/vite-app-infrastructure" element={<ViteInfra/>} />
+              <Route path="/projects/automating-backend-deployment" element={<ViteInfra/>} />
               
               
             </Routes>

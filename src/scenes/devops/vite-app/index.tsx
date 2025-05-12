@@ -14,7 +14,7 @@ const ViteInfra: React.FC = () => {
 
     return (
         <div className="p-4">
-            <Header title='Deployment Infrastructure for Vite App Containerization' />
+            <Header title='Automating Vite React App Deployment' />
     
             {/* GitHub Icon Link below Header */}
             <div className="mt-2 ml-6">

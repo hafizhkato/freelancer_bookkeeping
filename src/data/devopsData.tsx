@@ -24,7 +24,7 @@ export interface ProjectItem {
           {
             title: 'Automating Backend Deployment',
             description: 'ECS, ECR, Fargate, ALB, Cloudwatch, IAM, S3',
-            link: '/projects/vite-app-infrastructure',
+            link: '/projects/automating-backend-deployment',
           },
         ],
       },   
