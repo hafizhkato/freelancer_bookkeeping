@@ -21,6 +21,11 @@ const Dashboard: React.FC = () => {
             image: 'https://d3vc6iedgmxs4m.cloudfront.net/lake.jpg',
         },
         {
+            title: 'Website Projects',
+            link: '/website-project',
+            image: 'https://d3vc6iedgmxs4m.cloudfront.net/line123.jpg',
+        },
+        {
             title: 'Other Projects',
             link: '/other-project',
             image: 'https://d3vc6iedgmxs4m.cloudfront.net/stone.jpg',

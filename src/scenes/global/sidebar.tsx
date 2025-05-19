@@ -1,63 +1,107 @@
-
+import { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Database, Cloud, Menu, LogOutIcon, Globe, Server, Boxes} from "lucide-react";
-import { useSidebar } from "../../context/SidebarContext"; // Import context
-import { useAuthenticator } from '@aws-amplify/ui-react';
+import {
+  Database,
+  Cloud,
+  Menu,
+  LogOutIcon,
+  Globe,
+  Server,
+  Cat,
+} from "lucide-react";
+import { useSidebar } from "../../context/SidebarContext";
+import { useAuthenticator } from "@aws-amplify/ui-react";
 
 const Sidebar = () => {
   const { isOpen, setIsOpen } = useSidebar();
   const { signOut } = useAuthenticator();
+  const sidebarRef = useRef<HTMLDivElement>(null);
 
+  // Close sidebar when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: { target: any; }) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen, setIsOpen]);
+
+  if (!isOpen) {
+    // Closed state: render circular floating button
+    return (
+      <div className="fixed left-6 top-1/2 transform -translate-y-1/2 z-50">
+        <button
+          onClick={() => setIsOpen(true)}
+          className="w-14 h-14 flex items-center justify-center bg-gray-100 text-dark rounded-full shadow-lg hover:bg-gray-700 transition-all duration-300"
+        >
+          <Menu size={24} />
+        </button>
+      </div>
+    );
+  }
+
+  // Open state: full sidebar
   return (
-    <div className={` ${isOpen ? "w-64" : "w-20"} light bg-gray-800 text-white p-5 border border-white rounded-lg transition-all duration-300`}>
+    <div
+      ref={sidebarRef}
+      className="fixed top-6 left-6 z-50 w-64 bg-gray-300 text-dark p-5 border border-white rounded-lg transition-all duration-300 h-screen"
+    >
       {/* Toggle Button */}
-      <button 
-        onClick={() => setIsOpen(!isOpen)} 
-        className="flex items-center gap-4 text-white p-2 rounded mb-7 text-lg"
+      <button
+        onClick={() => setIsOpen(false)}
+        className="flex items-center gap-4 text-dark p-2 rounded mb-7 text-lg"
       >
-        <Menu size={isOpen ? 24 : 20} />
-        {isOpen && <span>Bangsal Kerinci</span>}
+        <Menu size={24} />
+        <span>Bangsal Kerinci</span>
       </button>
 
       {/* Sidebar Content */}
       <nav>
         <ul className="space-y-5 font-poppins text-lg">
           <li>
-            <Link to="/" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded ">
+            <Link to="/" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded">
               <Globe size={20} />
-              {isOpen && <span>Main Menu</span>}
+              <span>Main Menu</span>
             </Link>
           </li>
           <li>
-            <Link to="/projects/database-migration" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded ">
+            <Link to="/projects/database-migration" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded">
               <Database size={20} />
-              {isOpen && <span>Database Project</span>}
+              <span>Database Project</span>
             </Link>
           </li>
           <li>
             <Link to="/serverless-project" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded">
               <Cloud size={20} />
-              {isOpen && <span>Serverless Application</span>}
+              <span>Serverless Application</span>
             </Link>
           </li>
           <li>
-            <Link to="/devops-project" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded ">
+            <Link to="/devops-project" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded">
               <Server size={20} />
-              {isOpen && <span>DevOps Project</span>}
+              <span>DevOps Project</span>
             </Link>
           </li>
           <li>
-            <Link to="/other-project" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded ">
-              <Boxes size={20} />
-              {isOpen && <span>Others Project</span>}
+            <Link to="/website-project" className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded">
+              <Cat size={20} />
+              <span>Website Project</span>
             </Link>
           </li>
-            <li>
+          <li>
             <button onClick={signOut} className="flex items-center gap-3 p-2 hover:bg-gray-600 rounded">
               <LogOutIcon size={20} />
-              {isOpen && <span>Sign Out</span>}
+              <span>Sign Out</span>
             </button>
-          </li>  
+          </li>
         </ul>
       </nav>
     </div>

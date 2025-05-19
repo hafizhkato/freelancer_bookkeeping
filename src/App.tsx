@@ -20,6 +20,8 @@ import MultiState from "./scenes/devops/multi-state-env";
 import LandingPage from "./scenes/landing-page";
 import OthersProject from "./scenes/others-project";
 import DevopsProject from "./scenes/devops";
+import WebsiteProject from "./scenes/website";
+import AyamPacket from "./scenes/website/ayam-packet";
 import ViteInfra from "./scenes/devops/vite-app";
 import ContactForm from "./scenes/serverless-project/contact-form";
 import { Authenticator } from '@aws-amplify/ui-react';
@@ -82,9 +84,11 @@ const App = () => {
               <Route path="/serverless-project" element={<ServerlessProject/>} />
               <Route path="/devops-project" element={<DevopsProject/>} />
               <Route path="/other-project" element={<OthersProject/>} />
+              <Route path="/website-project" element={<WebsiteProject/>} />
               <Route path="/projects/upload-limit-api" element={<UploadLimit/>} />
               <Route path="/projects/contact-form" element={<ContactForm/>} />
               <Route path="/projects/automating-backend-deployment" element={<ViteInfra/>} />
+              <Route path="/projects/website-ayam-packet" element={<AyamPacket/>} />
               
               
             </Routes>
